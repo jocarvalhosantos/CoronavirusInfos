@@ -159,7 +159,7 @@ class CoronaVirusDataController extends Controller
         $dados['allTodayDeaths'] = $this->getAllTodayDeaths();
         $dados['allDeaths'] = $this->getAllDeaths();
         $dados['allRecovered'] = $this->getAllRecovered();
-        $dados['all'] = $this->getAll();
+        $dados['allCountryCAses'] = $this->getCountryCases();
         return $dados;
     }
 }
