@@ -47,24 +47,8 @@
         </ul>
     </nav>
     
-        <div class="d-flex bd-highlight">
-            <div class="p-2 bd-highlight w-100">
-                <div class="card text-white bg-info w-100 m-1">
-                    <div class="card-header">
-                      Brasil
-                    </div>
-                    <div class="card-body">
-                      <blockquote class="blockquote">
-                        <center><p class="text-yellow"><label id="numeroCasosBrazil" ></label> casos confirmados</p></center>
-                        <center><p><label id="numeroMortesBrazil" class="text-red"></label> mortes confirmadas</p></center>
-                        <center><p><label id="numeroRecuperadosBrazil" class="text-green"></label> recuperações confirmadas</p></center>
-                        <center><p><label id="numeroCasosHojeBrazil" class="text-white"></label> casos confirmados hoje</p></center>
-                        <center><p><label id="numeroMortesHojeBrazil" class="text-white"></label> mortes confirmadas hoje</p></center>
-                        {{-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> --}}
-                      </blockquote>
-                    </div>
-                  </div>
-            </div>
+        <div class="d-flex bd-highlight ">
+            
 
             <div class="p-2  bd-highlight w-100">
                 <div class="card w-100 text-white bg-info m-1">
@@ -78,6 +62,25 @@
                         <center><p><label id="numeroRecuperadosMundo"></label> recuperações confirmadas</p></center>
                         <center><p><label id="numeroCasosHojeMundo"></label> casos confirmados hoje</p></center>
                         <center><p><label id="numeroMortesHojeMundo"></label> mortes confirmadas hoje</p></center>
+                        {{-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> --}}
+                      </blockquote>
+                    </div>
+                  </div>
+            </div>
+
+
+            <div class="p-2 bd-highlight w-100 ">
+                <div class="card text-white bg-info w-100 m-1">
+                    <div class="card-header">
+                      Brasil
+                    </div>
+                    <div class="card-body ">
+                      <blockquote class="blockquote">
+                        <center><p class="text-yellow"><label id="numeroCasosBrazil" ></label> casos confirmados</p></center>
+                        <center><p><label id="numeroMortesBrazil" class="text-red"></label> mortes confirmadas</p></center>
+                        <center><p><label id="numeroRecuperadosBrazil" class="text-green"></label> recuperações confirmadas</p></center>
+                        <center><p><label id="numeroCasosHojeBrazil" class="text-white"></label> casos confirmados hoje</p></center>
+                        <center><p><label id="numeroMortesHojeBrazil" class="text-white"></label> mortes confirmadas hoje</p></center>
                         {{-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> --}}
                       </blockquote>
                     </div>
@@ -101,6 +104,47 @@
                     </div>
                   </div>
             </div>
+
+
+            <div class="p-2 bd-highlight w-100">
+                <div class="card text-white bg-info w-100 m-1">
+                    <div class="card-header">
+                      China
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote">
+                        <center><p class="text-yellow"><label id="numeroCasosChina" ></label> casos confirmados</p></center>
+                        <center><p><label id="numeroMortesChina" class="text-red"></label> mortes confirmadas</p></center>
+                        <center><p><label id="numeroRecuperadosChina" class="text-green"></label> recuperações confirmadas</p></center>
+                        <center><p><label id="numeroCasosHojeChina" class="text-white"></label> casos confirmados hoje</p></center>
+                        <center><p><label id="numeroMortesHojeChina" class="text-white"></label> mortes confirmadas hoje</p></center>
+                        {{-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> --}}
+                      </blockquote>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="p-2 bd-highlight w-100">
+                <div class="card text-white bg-info w-100 m-1">
+                    <div class="card-header">
+                      Irã
+                    </div>
+                    <div class="card-body">
+                      <blockquote class="blockquote">
+                        <center><p class="text-yellow"><label id="numeroCasosIran" ></label> casos confirmados</p></center>
+                        <center><p><label id="numeroMortesIran" class="text-red"></label> mortes confirmadas</p></center>
+                        <center><p><label id="numeroRecuperadosIran" class="text-green"></label> recuperações confirmadas</p></center>
+                        <center><p><label id="numeroCasosHojeIran" class="text-white"></label> casos confirmados hoje</p></center>
+                        <center><p><label id="numeroMortesHojeIran" class="text-white"></label> mortes confirmadas hoje</p></center>
+                        {{-- <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer> --}}
+                      </blockquote>
+                    </div>
+                  </div>
+            </div>
+
+
+
+
         </div>
       
           
@@ -113,10 +157,14 @@
         atualizarDadosMundo();
         atualizarDadosPais('Brazil');
         atualizarDadosPais('Italy');
+        atualizarDadosPais('China');
+        atualizarDadosPais('Iran');
         setInterval(() => {
             atualizarDadosMundo();
             atualizarDadosPais('Brazil');
             atualizarDadosPais('Italy');
+             atualizarDadosPais('China');
+             atualizarDadosPais('Iran');
             console.log('Atualizando Casos...');
 
         }, 5000);
@@ -135,11 +183,11 @@
             success: function (data) {
                
               
-                $('#numeroCasos'+pais).text(parseInt(data['allCases']).toLocaleString('pt-BR')=='NaN'? 0 : data['allCases'].toLocaleString('pt-BR'));
-                $('#numeroMortes'+pais).text(parseInt(data['allDeaths']).toLocaleString('pt-BR')=='NaN'? 0 : data['allDeaths'].toLocaleString('pt-BR'));
-                $('#numeroRecuperados'+pais).text(parseInt(data['allRecovered']).toLocaleString('pt-BR')=='NaN'? 0 : data['allRecovered'].toLocaleString('pt-BR'));
-                $('#numeroCasosHoje'+pais).text(parseInt(data['todayCases']).toLocaleString('pt-BR')=='NaN'? 0 : data['todayCases'].toLocaleString('pt-BR'));
-                $('#numeroMortesHoje'+pais).text(parseInt(data['todayDeaths']).toLocaleString('pt-BR')=='NaN'? 0 : data['todayDeaths'].toLocaleString('pt-BR'));
+                $('#numeroCasos'+pais).text(parseInt(data['allCases']).toLocaleString('pt-BR')=='NaN'? 0 : parseInt(data['allCases']).toLocaleString('pt-BR'));
+                $('#numeroMortes'+pais).text(parseInt(data['allDeaths']).toLocaleString('pt-BR')=='NaN'? 0 : parseInt(data['allDeaths']).toLocaleString('pt-BR'));
+                $('#numeroRecuperados'+pais).text(parseInt(data['allRecovered']).toLocaleString('pt-BR')=='NaN'? 0 : parseInt(data['allRecovered']).toLocaleString('pt-BR'));
+                $('#numeroCasosHoje'+pais).text(parseInt(data['todayCases']).toLocaleString('pt-BR')=='NaN'? 0 : parseInt(data['todayCases']).toLocaleString('pt-BR'));
+                $('#numeroMortesHoje'+pais).text(parseInt(data['todayDeaths']).toLocaleString('pt-BR')=='NaN'? 0 : parseInt(data['todayDeaths']).toLocaleString('pt-BR'));
             }
         });
     }
