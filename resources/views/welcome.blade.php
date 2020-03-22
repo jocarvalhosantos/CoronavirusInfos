@@ -133,7 +133,7 @@
                 country: pais
             },
             success: function (data) {
-                console.log(data);
+               
               
                 $('#numeroCasos'+pais).text(parseInt(data['allCases']).toLocaleString('pt-BR')=='NaN'? 0 : data['allCases'].toLocaleString('pt-BR'));
                 $('#numeroMortes'+pais).text(parseInt(data['allDeaths']).toLocaleString('pt-BR')=='NaN'? 0 : data['allDeaths'].toLocaleString('pt-BR'));
@@ -149,7 +149,7 @@
             cache: false,
             method: 'GET',
             success: function (data) {
-                console.log(data);
+             
                 $('#numeroCasosMundo').text(parseInt(data['allCases']).toLocaleString('pt-BR'));
                 $('#numeroMortesMundo').text(parseInt(data['allDeaths']).toLocaleString('pt-BR'));
                 $('#numeroRecuperadosMundo').text(parseInt(data['allRecovered']).toLocaleString('pt-BR'));
